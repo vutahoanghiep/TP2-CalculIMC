@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tp2_calculimc.MainActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textViewPoids"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/poids"
+            android:textAlignment="center"
+            android:textColor="?attr/colorError"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inputPoids"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Poids:"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/textViewTaille"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/taille"
+            android:textAlignment="center"
+            android:textColor="?attr/colorError"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/inputTaille"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Taille:"
+            android:inputType="numberDecimal" />
+
+        <RadioGroup
+            android:id="@+id/cbGroup"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/optionMetre"
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:text="Mètre" />
+
+            <RadioButton
+                android:id="@+id/optionCentimetre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Centimètre" />
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/optionCommentaire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Commentaire" />
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="wrap_content"
+            android:layout_height="95dp"
+            android:layout_gravity="center_horizontal|center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCalculer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="Calculer l'IMC" />
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="113dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:baselineAligned="false"
+                android:text="Reset" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Résultat:" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/result" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
