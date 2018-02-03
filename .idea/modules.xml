@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\AndroidWorkspace\AndroidWorkspace.iml" filepath="C:\AndroidWorkspace\AndroidWorkspace.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TP2-CalculIMC.iml" filepath="$PROJECT_DIR$/TP2-CalculIMC.iml" />
-      <module fileurl="file://C:\AndroidWorkspace\TP2-CalculIMC\TP2-CalculIMC.iml" filepath="C:\AndroidWorkspace\TP2-CalculIMC\TP2-CalculIMC.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\AndroidWorkspace\app\app.iml" filepath="C:\AndroidWorkspace\app\app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tp2-calculimc/tp2-calculimc.iml" filepath="$PROJECT_DIR$/tp2-calculimc/tp2-calculimc.iml" />
-      <module fileurl="file://C:\AndroidWorkspace\tp2-calculimc\tp2-calculimc.iml" filepath="C:\AndroidWorkspace\tp2-calculimc\tp2-calculimc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tp2-calculimc.iml" filepath="$PROJECT_DIR$/tp2-calculimc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tp2-calculimc/tp2-calculimc-tp2-calculimc.iml" filepath="$PROJECT_DIR$/tp2-calculimc/tp2-calculimc-tp2-calculimc.iml" />
     </modules>
   </component>
 </project>

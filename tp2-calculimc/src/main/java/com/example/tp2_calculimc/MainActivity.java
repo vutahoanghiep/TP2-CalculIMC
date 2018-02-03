@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        déclarer des variables
         btnCalculer = findViewById(R.id.btnCalculer);
         btnReset = findViewById(R.id.btnReset);
         inputTaille = findViewById(R.id.inputTaille);
@@ -37,13 +39,21 @@ public class MainActivity extends AppCompatActivity {
         cbGroup = findViewById(R.id.cbGroup);
         result = findViewById(R.id.result);
 
+//        déclarer des actions à faire quand on clique sur un bouton
         btnCalculer.setOnClickListener(calculerListener);
         btnReset.setOnClickListener(resetListener);
         optionCommentaire.setOnClickListener(commentaireListener);
-        inputTaille.addTextChangedListener(textWatcher);
-        inputPoids.addTextChangedListener(textWatcher);
+
+//        solution 1: gérer les EditText avec textWatcher
+//        inputTaille.addTextChangedListener(textWatcher);
+//        inputPoids.addTextChangedListener(textWatcher);
+
+//        solution 2: gérer les EditText avec Listener
+        inputTaille.setOnKeyListener(modifListener);
+        inputPoids.setOnKeyListener(modifListener);
     }
 
+    //    définir les actions à faire quand on clique sur un bouton
     private View.OnClickListener calculerListener = new View.OnClickListener() {
 
         @Override
@@ -64,11 +74,12 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     // Si l'utilisateur a indiqué que la taille était en centimètres
                     // On vérifie que la Checkbox sélectionnée est la deuxième à l'aide de son identifiant
-                    if (cbGroup.getCheckedRadioButtonId() == R.id.optionCentimetre)
+                    if (cbGroup.getCheckedRadioButtonId() == R.id.optionCentimetre) {
                         tValue = tValue / 100;
+                    }
                     imc = pValue / (tValue * tValue);
                     String resultat = "Votre IMC est " + imc + " ";
-                    if(optionCommentaire.isChecked()) {
+                    if (optionCommentaire.isChecked()) {
                         resultat += interpreteIMC(imc);
                     }
                     result.setText(resultat);
@@ -78,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private View.OnClickListener resetListener = new View.OnClickListener() {
-
         @Override
         public void onClick(View v) {
             inputPoids.getText().clear();
@@ -90,39 +100,52 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener commentaireListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if(((CheckBox)v).isChecked()) {
+            if (((CheckBox) v).isChecked()) {
                 result.setText(texteInit);
             }
         }
     };
 
-    private TextWatcher textWatcher = new TextWatcher() {
+//    solution 1: gérer EditText avec textWatcher
+//    private TextWatcher textWatcher = new TextWatcher() {
+//
+//        @Override
+//        public void onTextChanged(CharSequence s, int start, int before, int count) {
+//            result.setText(texteInit);
+//        }
 
+//    solution 2: gérer EditText avec Listener
+    private View.OnKeyListener modifListener = new View.OnKeyListener() {
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
+        public boolean onKey(View v, int keyCode, KeyEvent event) {
+            // On remet le texte à sa valeur par défaut
             result.setText(texteInit);
+            return false;
         }
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-        @Override
-        public void afterTextChanged(Editable s) {}
     };
 
+//    @Override
+//    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//    }
+//
+//    @Override
+//    public void afterTextChanged(Editable s) {
+//    }
+
+    //ajout des commentaires si l'option "Commentaire" est choisi
     private String interpreteIMC(float imc) {
         String commentaire;
         if (imc < 16.5) {
             commentaire = "==> famine";
-        } else if (16.5 <= imc && imc <18.5) {
+        } else if (16.5 <= imc && imc < 18.5) {
             commentaire = "==> maigreur";
-        } else if (18.5 <= imc && imc <25) {
+        } else if (18.5 <= imc && imc < 25) {
             commentaire = "==> corpulence normale";
-        } else if (25 <= imc && imc <30) {
+        } else if (25 <= imc && imc < 30) {
             commentaire = "==> surpoids";
-        } else if (30 <= imc && imc <35) {
+        } else if (30 <= imc && imc < 35) {
             commentaire = "==> obésité modérée";
-        } else if (35 <= imc && imc <40) {
+        } else if (35 <= imc && imc < 40) {
             commentaire = "==> obésité sévère";
         } else {
             commentaire = "==> obésité morbide ou massive";
