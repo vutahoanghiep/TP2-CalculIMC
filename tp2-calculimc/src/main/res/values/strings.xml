@@ -11,4 +11,14 @@
     <string name="calcul">Calculer l\'IMC</string>
     <string name="reset">Reset</string>
     <string name="result1">Résultat</string>
+    <string name="taillePos">La taille doit être positive</string>
+    <string name="poidsPos">Le poids doit être positf</string>
+    <string name="textRes">Votre IMC est</string>
+    <string name="famine">famine</string>
+    <string name="maigreur">maigreur</string>
+    <string name="corpulence_normale">corpulence normale</string>
+    <string name="surpoids">surpoids</string>
+    <string name="obesite_modere">obésité modérée</string>
+    <string name="obesite_severe">obésité sévère</string>
+    <string name="obesite_massive">obésité morbide ou massive</string>
 </resources>

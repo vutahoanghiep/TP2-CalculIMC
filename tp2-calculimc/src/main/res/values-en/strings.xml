@@ -9,7 +9,17 @@
     <string name="optionMetre">Meter</string>
     <string name="optionCentimetre">Centimeter</string>
     <string name="commentaire">Commentaire</string>
-    <string name="calcul">Calculate the IMC</string>
+    <string name="calcul">Calculate the BMI</string>
     <string name="reset">Reset</string>
     <string name="result1">Result</string>
+    <string name="taillePos">The height must be positive</string>
+    <string name="poidsPos">The weight must be positive</string>
+    <string name="textRes">Your BMI is</string>
+    <string name="famine">famine</string>
+    <string name="maigreur">thin</string>
+    <string name="corpulence_normale">normal</string>
+    <string name="surpoids">overweight</string>
+    <string name="obesite_modere">obesity class 1</string>
+    <string name="obesite_severe">obesity class 2</string>
+    <string name="obesite_massive">extreme ebesity</string>
 </resources>

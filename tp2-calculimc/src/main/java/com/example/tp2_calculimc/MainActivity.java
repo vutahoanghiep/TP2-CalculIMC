@@ -1,5 +1,6 @@
 package com.example.tp2_calculimc;
 
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextWatcher;
@@ -22,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup cbGroup = null;
     TextView result = null;
     float imc;
-
-    private final String texteInit = "Cliquez sur le bouton « Calculer l'IMC » pour obtenir un résultat.";
+    Resources resources = null;
+    String texteInit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         optionCommentaire = findViewById(R.id.optionCommentaire);
         cbGroup = findViewById(R.id.cbGroup);
         result = findViewById(R.id.result);
+
+//        pour récupérer la valeur des textes dans strings.xml
+        resources = getResources();
 
 //        déclarer des actions à faire quand on clique sur un bouton
         btnCalculer.setOnClickListener(calculerListener);
@@ -65,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
             // Puis on vérifie que la taille est cohérente
             if (tValue <= 0)
-                Toast.makeText(MainActivity.this, "La taille doit être positive", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, resources.getString(R.string.taillePos), Toast.LENGTH_SHORT).show();
             else {
                 float pValue = Float.valueOf(p);
                 if (pValue <= 0)
-                    Toast.makeText(MainActivity.this, "Le poids doit etre positif", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, resources.getString(R.string.poidsPos), Toast.LENGTH_SHORT).show();
                 else {
                     // Si l'utilisateur a indiqué que la taille était en centimètres
                     // On vérifie que la Checkbox sélectionnée est la deuxième à l'aide de son identifiant
@@ -82,9 +86,9 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     imc = pValue / (tValue * tValue);
-                    String resultat = "Votre IMC est " + imc + " ";
+                    String resultat = resources.getString(R.string.textRes) +" " + imc;
                     if (optionCommentaire.isChecked()) {
-                        resultat += interpreteIMC(imc);
+                        resultat += " ==> "+ interpreteIMC(imc);
                     }
                     result.setText(resultat);
                 }
@@ -97,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             inputPoids.getText().clear();
             inputTaille.getText().clear();
-            result.setText(texteInit);
+            result.setText(resources.getString(R.string.result2));
         }
     };
 
@@ -105,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (((CheckBox) v).isChecked()) {
-                result.setText(texteInit);
+                result.setText(resources.getString(R.string.result2));
             }
         }
     };
@@ -117,42 +121,42 @@ public class MainActivity extends AppCompatActivity {
 //        public void onTextChanged(CharSequence s, int start, int before, int count) {
 //            result.setText(texteInit);
 //        }
+//        @Override
+//        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//        }
+//
+//        @Override
+//        public void afterTextChanged(Editable s) {
+//        }
+//    };
 
-//    solution 2: gérer EditText avec Listener
+    //    solution 2: gérer EditText avec Listener
     private View.OnKeyListener modifListener = new View.OnKeyListener() {
         @Override
         public boolean onKey(View v, int keyCode, KeyEvent event) {
             // On remet le texte à sa valeur par défaut
-            result.setText(texteInit);
+            result.setText(resources.getString(R.string.result2));
             return false;
         }
     };
-
-//    @Override
-//    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//    }
-//
-//    @Override
-//    public void afterTextChanged(Editable s) {
-//    }
 
     //ajout des commentaires si l'option "Commentaire" est choisi
     private String interpreteIMC(float imc) {
         String commentaire;
         if (imc < 16.5) {
-            commentaire = "==> famine";
+            commentaire = resources.getString(R.string.famine);
         } else if (16.5 <= imc && imc < 18.5) {
-            commentaire = "==> maigreur";
+            commentaire = resources.getString(R.string.maigreur);
         } else if (18.5 <= imc && imc < 25) {
-            commentaire = "==> corpulence normale";
+            commentaire = resources.getString(R.string.corpulence_normale);
         } else if (25 <= imc && imc < 30) {
-            commentaire = "==> surpoids";
+            commentaire = resources.getString(R.string.surpoids);
         } else if (30 <= imc && imc < 35) {
-            commentaire = "==> obésité modérée";
+            commentaire = resources.getString(R.string.obesite_modere);
         } else if (35 <= imc && imc < 40) {
-            commentaire = "==> obésité sévère";
+            commentaire = resources.getString(R.string.obesite_severe);
         } else {
-            commentaire = "==> obésité morbide ou massive";
+            commentaire = resources.getString(R.string.obesite_massive);
         }
         return commentaire;
     }
