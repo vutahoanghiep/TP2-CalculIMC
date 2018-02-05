@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:text="@string/poids"
+            android:text="@string/textViewPoids"
             android:textAlignment="center"
             android:textColor="?attr/colorError"
             android:textStyle="bold" />
@@ -32,14 +32,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Poids:"
+            android:hint="@string/hintPoids"
             android:inputType="numberDecimal" />
 
         <TextView
             android:id="@+id/textViewTaille"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/taille"
+            android:text="@string/textViewTaille"
             android:textAlignment="center"
             android:textColor="?attr/colorError"
             android:textStyle="bold" />
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Taille:"
+            android:hint="@string/hintTaille"
             android:inputType="numberDecimal" />
 
         <RadioGroup
@@ -64,20 +64,20 @@
                 android:id="@+id/optionMetre"
                 android:layout_width="132dp"
                 android:layout_height="wrap_content"
-                android:text="Mètre" />
+                android:text="@string/optionMetre" />
 
             <RadioButton
                 android:id="@+id/optionCentimetre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Centimètre" />
+                android:text="@string/optionCentimetre" />
         </RadioGroup>
 
         <CheckBox
             android:id="@+id/optionCommentaire"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Commentaire" />
+            android:text="@string/commentaire" />
 
         <LinearLayout
             android:id="@+id/layout"
@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Calculer l'IMC" />
+                android:text="@string/calcul" />
 
             <Button
                 android:id="@+id/btnReset"
@@ -99,20 +99,20 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:baselineAligned="false"
-                android:text="Reset" />
+                android:text="@string/reset" />
 
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Résultat:" />
+            android:text="@string/result1" />
 
         <TextView
             android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/result" />
+            android:text="@string/result2" />
 
     </LinearLayout>
 

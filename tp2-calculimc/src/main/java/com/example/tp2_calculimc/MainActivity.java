@@ -2,7 +2,6 @@ package com.example.tp2_calculimc;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
@@ -77,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
                     if (cbGroup.getCheckedRadioButtonId() == R.id.optionCentimetre) {
                         tValue = tValue / 100;
                     }
+//                    choisir automatique l'unité Mètre si la présence d'un point décimal est détectée
+                    if (t.contains(".")) {
+                        cbGroup.check(R.id.optionMetre);
+                    }
+
                     imc = pValue / (tValue * tValue);
                     String resultat = "Votre IMC est " + imc + " ";
                     if (optionCommentaire.isChecked()) {

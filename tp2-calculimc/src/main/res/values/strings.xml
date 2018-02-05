@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">TP2-CalculIMC</string>
-    <string name="poids">Déterminez votre poids:</string>
-    <string name="taille">Déterminez votre taille:</string>
-    <string name="result">Vous devez appuyer sur le bouton "Calculer l'IMC" pour obtenir un résultat</string>
+    <string name="textViewPoids">Déterminez votre poids:</string>
+    <string name="textViewTaille">Déterminez votre taille:</string>
+    <string name="result2">Vous devez appuyer sur le bouton "Calculer l'IMC" pour obtenir un résultat</string>
+    <string name="hintPoids">Poids:</string>
+    <string name="hintTaille">Taille:</string>
+    <string name="optionMetre">Mètre</string>
+    <string name="optionCentimetre">Centimètre</string>
+    <string name="commentaire">Commentaire</string>
+    <string name="calcul">Calculer l\'IMC</string>
+    <string name="reset">Reset</string>
+    <string name="result1">Résultat</string>
 </resources>

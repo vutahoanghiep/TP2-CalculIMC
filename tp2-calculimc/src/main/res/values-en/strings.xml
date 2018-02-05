@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TP2-CalculIMC</string>
+    <string name="textViewTaille">Enter your height</string>
+    <string name="textViewPoids">Enter your weight</string>
+    <string name="result2">Please tap the button \"Calculate the IMC\" for the result</string>
+    <string name="hintPoids">Weight:</string>
+    <string name="hintTaille">Height:</string>
+    <string name="optionMetre">Meter</string>
+    <string name="optionCentimetre">Centimeter</string>
+    <string name="commentaire">Commentaire</string>
+    <string name="calcul">Calculate the IMC</string>
+    <string name="reset">Reset</string>
+    <string name="result1">Result</string>
+</resources>
