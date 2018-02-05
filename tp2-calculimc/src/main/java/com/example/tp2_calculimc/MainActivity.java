@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup cbGroup = null;
     TextView result = null;
     float imc;
-    Resources resources = null;
-    String texteInit;
+//    String texteInit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +37,6 @@ public class MainActivity extends AppCompatActivity {
         optionCommentaire = findViewById(R.id.optionCommentaire);
         cbGroup = findViewById(R.id.cbGroup);
         result = findViewById(R.id.result);
-
-//        pour récupérer la valeur des textes dans strings.xml
-        resources = getResources();
 
 //        déclarer des actions à faire quand on clique sur un bouton
         btnCalculer.setOnClickListener(calculerListener);
@@ -69,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
 
             // Puis on vérifie que la taille est cohérente
             if (tValue <= 0)
-                Toast.makeText(MainActivity.this, resources.getString(R.string.taillePos), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, getString(R.string.taillePos), Toast.LENGTH_SHORT).show();
             else {
                 float pValue = Float.valueOf(p);
                 if (pValue <= 0)
-                    Toast.makeText(MainActivity.this, resources.getString(R.string.poidsPos), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getString(R.string.poidsPos), Toast.LENGTH_SHORT).show();
                 else {
                     // Si l'utilisateur a indiqué que la taille était en centimètres
                     // On vérifie que la Checkbox sélectionnée est la deuxième à l'aide de son identifiant
@@ -86,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     imc = pValue / (tValue * tValue);
-                    String resultat = resources.getString(R.string.textRes) +" " + imc;
+                    String resultat = getString(R.string.textRes) +" " + imc;
                     if (optionCommentaire.isChecked()) {
                         resultat += " ==> "+ interpreteIMC(imc);
                     }
@@ -101,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             inputPoids.getText().clear();
             inputTaille.getText().clear();
-            result.setText(resources.getString(R.string.result2));
+            result.setText(getString(R.string.result2));
         }
     };
 
@@ -109,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (((CheckBox) v).isChecked()) {
-                result.setText(resources.getString(R.string.result2));
+                result.setText(getString(R.string.result2));
             }
         }
     };
@@ -135,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onKey(View v, int keyCode, KeyEvent event) {
             // On remet le texte à sa valeur par défaut
-            result.setText(resources.getString(R.string.result2));
+            result.setText(getString(R.string.result2));
             return false;
         }
     };
@@ -144,19 +140,19 @@ public class MainActivity extends AppCompatActivity {
     private String interpreteIMC(float imc) {
         String commentaire;
         if (imc < 16.5) {
-            commentaire = resources.getString(R.string.famine);
+            commentaire = getString(R.string.famine);
         } else if (16.5 <= imc && imc < 18.5) {
-            commentaire = resources.getString(R.string.maigreur);
+            commentaire = getString(R.string.maigreur);
         } else if (18.5 <= imc && imc < 25) {
-            commentaire = resources.getString(R.string.corpulence_normale);
+            commentaire = getString(R.string.corpulence_normale);
         } else if (25 <= imc && imc < 30) {
-            commentaire = resources.getString(R.string.surpoids);
+            commentaire = getString(R.string.surpoids);
         } else if (30 <= imc && imc < 35) {
-            commentaire = resources.getString(R.string.obesite_modere);
+            commentaire = getString(R.string.obesite_modere);
         } else if (35 <= imc && imc < 40) {
-            commentaire = resources.getString(R.string.obesite_severe);
+            commentaire = getString(R.string.obesite_severe);
         } else {
-            commentaire = resources.getString(R.string.obesite_massive);
+            commentaire = getString(R.string.obesite_massive);
         }
         return commentaire;
     }
