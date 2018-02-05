@@ -73,17 +73,19 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, getString(R.string.poidsPos), Toast.LENGTH_SHORT).show();
                 else {
                     // Si l'utilisateur a indiqué que la taille était en centimètres
-
-                    // choisir automatique l'unité Mètre si la présence d'un point décimal est détectée
-                    if (t.contains(".")) {
-                        cbGroup.check(R.id.optionMetre);
-                    }
                     // On vérifie que la Checkbox sélectionnée est la deuxième à l'aide de son identifiant
                     if (cbGroup.getCheckedRadioButtonId() == R.id.optionCentimetre) {
                         tValue = tValue / 100;
                     }
+
                     imc = pValue / (tValue * tValue);
-                    String resultat = getString(R.string.textRes) +" " + imc;
+                    String resultat;
+                    if (cbGroup.getCheckedRadioButtonId() == -1)
+                    {
+                        resultat = getString(R.string.unite_non_choisie);
+                    } else {
+                        resultat = getString(R.string.textRes) + " " + imc;
+                    }
                     if (optionCommentaire.isChecked()) {
                         resultat += " ==> "+ interpreteIMC(imc);
                     }
@@ -131,6 +133,13 @@ public class MainActivity extends AppCompatActivity {
     private View.OnKeyListener modifListener = new View.OnKeyListener() {
         @Override
         public boolean onKey(View v, int keyCode, KeyEvent event) {
+            // choisir automatique l'unité Mètre si la présence d'un point décimal est détectée
+            String t = inputTaille.getText().toString();
+            if (t.contains(".")) {
+                cbGroup.check(R.id.optionMetre);
+            } else {
+                cbGroup.clearCheck();
+            }
             // On remet le texte à sa valeur par défaut
             result.setText(getString(R.string.result2));
             return false;

@@ -22,4 +22,5 @@
     <string name="obesite_modere">obesity class 1</string>
     <string name="obesite_severe">obesity class 2</string>
     <string name="obesite_massive">extreme ebesity</string>
+    <string name="unite_non_choisie">Please choose the height unit</string>
 </resources>
