@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,15 +73,15 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, getString(R.string.poidsPos), Toast.LENGTH_SHORT).show();
                 else {
                     // Si l'utilisateur a indiqué que la taille était en centimètres
+
+                    // choisir automatique l'unité Mètre si la présence d'un point décimal est détectée
+                    if (t.contains(".")) {
+                        cbGroup.check(R.id.optionMetre);
+                    }
                     // On vérifie que la Checkbox sélectionnée est la deuxième à l'aide de son identifiant
                     if (cbGroup.getCheckedRadioButtonId() == R.id.optionCentimetre) {
                         tValue = tValue / 100;
                     }
-//                    choisir automatique l'unité Mètre si la présence d'un point décimal est détectée
-                    if (t.contains(".")) {
-                        cbGroup.check(R.id.optionMetre);
-                    }
-
                     imc = pValue / (tValue * tValue);
                     String resultat = getString(R.string.textRes) +" " + imc;
                     if (optionCommentaire.isChecked()) {
