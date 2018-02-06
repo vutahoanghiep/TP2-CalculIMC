@@ -83,11 +83,10 @@ public class MainActivity extends AppCompatActivity {
                     if (cbGroup.getCheckedRadioButtonId() == -1)
                     {
                         resultat = getString(R.string.unite_non_choisie);
+                    } else if (optionCommentaire.isChecked()) {
+                        resultat = getString(R.string.textRes) + " " + imc + " ==> " + interpreteIMC(imc);
                     } else {
                         resultat = getString(R.string.textRes) + " " + imc;
-                    }
-                    if (optionCommentaire.isChecked()) {
-                        resultat += " ==> "+ interpreteIMC(imc);
                     }
                     result.setText(resultat);
                 }
@@ -146,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    //ajout des commentaires si l'option "Commentaire" est choisi
+    //ajout des commentaires si l'option "Commentaire" est choisi en récupérant les valeurs de texte dans strings.xml
     private String interpreteIMC(float imc) {
         String commentaire;
         if (imc < 16.5) {
