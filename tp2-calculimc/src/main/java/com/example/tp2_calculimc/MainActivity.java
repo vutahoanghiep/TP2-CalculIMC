@@ -58,19 +58,29 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
+            float tValue = 0, pValue = 0;
             //  on récupère la taille
             String t = inputTaille.getText().toString();
             // On récupère le poids
             String p = inputPoids.getText().toString();
-            float tValue = Float.valueOf(t);
+
+            try {
+                pValue = Float.valueOf(p);
+            } catch (NumberFormatException e) {
+                result.setText(getString(R.string.poids_null));
+            }
 
             // Puis on vérifie que la taille est cohérente
-            if (tValue <= 0)
-                Toast.makeText(MainActivity.this, getString(R.string.taillePos), Toast.LENGTH_SHORT).show();
+            if (pValue <= 0)
+                Toast.makeText(MainActivity.this, getString(R.string.poidsPos), Toast.LENGTH_SHORT).show();
             else {
-                float pValue = Float.valueOf(p);
-                if (pValue <= 0)
-                    Toast.makeText(MainActivity.this, getString(R.string.poidsPos), Toast.LENGTH_SHORT).show();
+                try {
+                    tValue = Float.valueOf(t);
+                } catch (NumberFormatException e) {
+                    result.setText(getString(R.string.taille_null));
+                }
+                if (tValue <= 0)
+                    Toast.makeText(MainActivity.this, getString(R.string.taillePos), Toast.LENGTH_SHORT).show();
                 else {
                     // Si l'utilisateur a indiqué que la taille était en centimètres
                     // On vérifie que la Checkbox sélectionnée est la deuxième à l'aide de son identifiant

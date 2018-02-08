@@ -23,4 +23,6 @@
     <string name="obesite_severe">obesity class 2</string>
     <string name="obesite_massive">extreme ebesity</string>
     <string name="unite_non_choisie">Please choose the height unit</string>
+    <string name="poids_null">Please enter the weight</string>
+    <string name="taille_null">Please enter the height</string>
 </resources>

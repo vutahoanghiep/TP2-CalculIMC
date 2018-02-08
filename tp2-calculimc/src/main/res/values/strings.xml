@@ -22,4 +22,6 @@
     <string name="obesite_severe">obésité sévère</string>
     <string name="obesite_massive">obésité morbide ou massive</string>
     <string name="unite_non_choisie">Veuillez choisir l\'unité pour la taille</string>
+    <string name="poids_null">Veuillez entrer le poids</string>
+    <string name="taille_null">Veuillez entrer la taille</string>
 </resources>
